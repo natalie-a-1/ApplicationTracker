@@ -4,7 +4,6 @@ from django.urls import reverse
 from datetime import date
 import uuid
 
-
 # Create your models here.
 ApplicationStatusChoices = [
     ('Applied', 'Applied'),
@@ -54,8 +53,9 @@ class Application(models.Model):
         blank=False,
         verbose_name='Position',
     )
-    #ID = models.UUIDField(primary_key=True, default=uuid.uuid4,
-                          #help_text='Unique ID')
+
+    # ID = models.UUIDField(primary_key=True, default=uuid.uuid4,
+    # help_text='Unique ID')
 
     def __str__(self):
         """String for representing the Model object."""
@@ -64,4 +64,3 @@ class Application(models.Model):
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this book."""
         return reverse('application-detail', args=[str(self.id)])
-
