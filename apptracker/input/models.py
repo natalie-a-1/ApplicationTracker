@@ -64,3 +64,30 @@ class Application(models.Model):
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this book."""
         return reverse('application-detail', args=[str(self.id)])
+
+
+class DailySchedule(models.Model):
+    today = date.weekday()
+    schedule = []
+    if today == 0 or today == 6:
+        schedule = []
+    elif today == 1 or today == 3:
+        schedule = [
+            ('8:00am-11:00am', 'work'),
+            ('11:30am-12:20pm', 'principles of programming'),
+            ('1:30pm-2:20pm', 'linear algebra'),
+            ('3:30pm-5:15pm', 'professional development'),
+        ]
+    elif today == 2 or today == 4:
+        schedule = [
+            ('9:00am-10:15am', 'intro to operating systems'),
+            ('11:30am-12:20pm', 'work'),
+            ('4:30pm-5:15pm', 'software engineering'),
+
+        ]
+    elif today == 5:
+        schedule = [
+            ('8:00am-11:00am', 'work'),
+            ('11:30am-12:20pm', 'principles of programming'),
+            ('1:30pm-2:20pm', 'linear algebra'),
+        ]

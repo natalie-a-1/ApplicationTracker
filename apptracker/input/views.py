@@ -5,11 +5,7 @@ from .models import Application
 
 
 def index(request):
-    num_applications = Application.objects.all().count()
-    context = {
-        'Application': num_applications
-    }
-    return render(request, 'index.html', context=context)
+
 
 
 class ApplicationListView(generic.ListView):
